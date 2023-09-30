@@ -23,10 +23,6 @@ Route::get('/profile/partner', 'GeneralController@profile_partner');
 Route::get('/profile/settings', 'GeneralController@settings');
 Route::post('/profile/settings', 'GeneralController@settingsStore');
 Route::get('/user/{id}', 'GeneralController@user_page');
-Route::get('/test', function(){
-    \App\Email::sendEmail('maxlaren@hotmail.com', 'Recuperação de senha', view('pages.recovery')->with('url', 'http://jadeusuaraspadinhahoje.local/test')->render());
-});
-
 
 
 Route::post('/game/start', 'GeneralController@start');
@@ -39,6 +35,8 @@ Route::post('/api/stats', 'GeneralController@stats');
 Route::get('/api/get_drop', 'GeneralController@get_drop');
 Route::post('/api/drop', 'GeneralController@drop');
 
+Route::get('/api/get_winners', 'GeneralController@get_winners');
+Route::get('/api/get_jackpots', 'GeneralController@get_jackpots');
 
 
 Route::post('/user/history', 'GeneralController@history');
@@ -58,6 +56,8 @@ Route::group(['prefix' => '/admin', 'middleware' => 'Access:admin'], function() 
     Route::get('/saveSettings', 'AdminController@saveSettings'); // +
     Route::get('/lastOpen', 'AdminController@lastOpen'); // +
     Route::get('/lastWithdraw', 'AdminController@lastWithdraw'); // +
+    Route::get('/jackpot', 'AdminController@jackpot'); // +
+    Route::post('/jackpot/start-prize', 'AdminController@jackpot_prize'); // +
     Route::get('/users', 'AdminController@users'); // +
     Route::get('/users/table', 'AdminController@usersTable')->name('users.table'); // +
     Route::get('/user/{id}', 'AdminController@user'); // +
