@@ -124,7 +124,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
                 <div class="footer__block">
-                    <div class="footer__block-header">Raspadinha DENER</div>
+                    <div class="footer__block-header">Raspadinha Premiada</div>
                     <div class="footer__block-text">Bem-vindo à Raspadinha Premiada!</div>
                     <div class="footer__block-text">Você está em uma loteria instantânea onde pode tentar a sorte e comprar bilhetes raspe e ganhe. Não perca sua chance!</div>
                     <div class="footer__block-text footer__block-text_link">
