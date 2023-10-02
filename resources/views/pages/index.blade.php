@@ -152,7 +152,9 @@ Raspadinha Premiada - Loteria online instantânea com retirada de dinheiro em PI
 <div>
     <div class="container container_full-width game-jackpotwinners">
         <div>
-            <p>O usuário <span id="game-jackpot-winner-label">{{Cache::get('pot_winners')['username']}}</span> foi o sortudo da vez e faturou um Jackpot premiado. Ganhou: R$ <span id="game-jackpot-winner-prize">{{number_format(Cache::get('pot_winners')['prize'], 0, ',', '.')}}</span>. Aposte agora mesmo e seja o próximo!</p>
+            @if (Cache::get('pot_winners'))
+                <p>O usuário <span id="game-jackpot-winner-label">{{Cache::get('pot_winners')['username']}}</span> foi o sortudo da vez e faturou um Jackpot premiado. Ganhou: R$ <span id="game-jackpot-winner-prize">{{number_format(Cache::get('pot_winners')['prize'], 0, ',', '.')}}</span>. Você pode ser o próximo  sortudo e faturar até 5 mil reais</p>
+            @endif
         </div>
     </div>
 </div>
