@@ -137,15 +137,14 @@ class AdminController extends Controller
         $fake = $request->get('fake');
 
         if ($fake) {
-            $nomes = json_decode(file_get_contents(__DIR__ . '/../../../resources/assets/nomes.json'));
-            $nomes = $nomes->nomes;
+            $user = User::where('is_admin', 1)->inRandomOrder()->first();
 
             $prize = Cache::get('pot_'.$pot);
             Cache::put('pot_'.$pot, 0, $seconds = 10);
-            Cache::put('pot_winners', ['username' => $nomes[array_rand($nomes)], 'prize' => $prize], $seconds = 10);
+            Cache::put('pot_winners', ['username' => $user->login, 'prize' => $prize], $seconds = 10);
             $insert = DB::table('games')->insertGetId([
                 'bet' => 2,
-                'user_id' => 0,
+                'user_id' => $user->id,
                 'type' => 1,
                 'cell_1' => $prize,
                 'cell_2' => $prize,

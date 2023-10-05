@@ -98,7 +98,7 @@ class GeneralController extends Controller
 		Cache::forever('pot_2_winner', false);
 		Cache::forever('pot_3_winner', false);
 
-		Cache::forever('pot_winners', ['username' => "estevanmelo87", 'prize' => 10000]);
+		Cache::forever('pot_winners', []);
 
 		return true;
 	}
